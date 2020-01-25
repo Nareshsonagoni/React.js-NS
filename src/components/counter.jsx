@@ -3,25 +3,22 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     // we use state to define all the elements used in the present component.
-    count: 0,
-    tags: [] //["tag1", "tag2", "tag3"]
+    count: 0
   };
 
-  renderTags() {
-    if (this.state.tags.length === 0) return <p>There are no tags</p>;
-
-    return this.state.tags.map(tag => <li key={tag}>{tag}</li>);
+  handleIncreament() {
+    console.log("Increament clicked", this);
   }
   render() {
     return (
       <React.Fragment>
         <span className={this.getBedgeClass()}>{this.formatCount()}</span>
-        <button className="badge badge-secondary btn-sm">Increament</button>
-        <ul>
-          <span>{this.state.tags.length === 0 && "Please add some tags"}</span>
-          {/* // when JS evaluates this expression it will return the last conditon always if true.*/}
-          {this.renderTags()}
-        </ul>
+        <button
+          onClick={this.handleIncreament}
+          className="badge badge-secondary btn-sm"
+        >
+          Increament
+        </button>
       </React.Fragment>
     );
   }
