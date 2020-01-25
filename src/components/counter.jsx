@@ -6,9 +6,9 @@ class Counter extends Component {
     count: 0
   };
 
-  handleIncreament() {
-    console.log("Increament clicked", this);
-  }
+  handleIncreament = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
   render() {
     return (
       <React.Fragment>
