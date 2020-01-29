@@ -6,7 +6,7 @@ class Counter extends Component {
     count: 0
   };
 
-  handleIncreament = () => {
+  handleIncreament = prdoct => {
     this.setState({ count: this.state.count + 1 });
   };
   render() {
