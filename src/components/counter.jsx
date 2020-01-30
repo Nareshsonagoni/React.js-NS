@@ -1,20 +1,12 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = {
-    // we use state to define all the elements used in the present component.
-    value: this.props.counter.value
-  };
-
-  handleIncreament = product => {
-    this.setState({ value: this.state.value + 1 });
-  };
   render() {
     return (
       <div>
         <span className={this.getBedgeClass()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncreament}
+          onClick={() => this.props.onIncreament(this.props.counter)}
           className="badge badge-secondary btn-sm"
         >
           Increament
@@ -32,13 +24,13 @@ class Counter extends Component {
 
   getBedgeClass() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
     // Dynamically change type of the class based on the value.
   }
 
   formatCount() {
-    const { value } = this.state;
+    const { value } = this.props.counter;
     return value === 0 ? "Zero" : value;
   }
 }
